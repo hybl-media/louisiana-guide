@@ -28,7 +28,7 @@ class GuidesList extends Component {
           {this.state.guides.map(guide => (
               <div className="card" key={guide.id}>
                 <div className="card-content">
-                  <h3>{guide.title.rendered}</h3>
+                  <a href="#">{guide.title.rendered}</a>
                 </div>
               </div>
           ))}
