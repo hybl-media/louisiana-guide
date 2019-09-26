@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import GuidesList from './GuidesList.js'
+import React, { Component } from 'react';
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import GuidesList from './GuidesList.js';
 
 class App extends Component {
   render() {
     return (
-        <div className="container">
-        <GuidesList />
-      </div>
+      <GuidesList />
     )
   }
 }

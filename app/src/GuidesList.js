@@ -1,5 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import SpotsList from './SpotsList.js';
+
 
 class GuidesList extends Component {
     constructor(props) {
@@ -24,15 +28,21 @@ class GuidesList extends Component {
   
     render() {
       return (
-        <div>
-          {this.state.guides.map(guide => (
-              <div className="card" key={guide.id}>
-                <div className="card-content">
-                  <a href="#">{guide.title.rendered}</a>
+        <Router>
+          <div>
+            {this.state.guides.map(guide => (
+              <Link to={`/${guide.slug}`} key={guide.id} guide={guide.category}>
+                <div className="card" key={guide.id}>
+                  <div className="card-content">
+                    <h3>{guide.title.rendered}</h3>
+                  </div>
                 </div>
-              </div>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+          <Route path="/" exact component={SpotsList} />
+
+        </Router>
       );
     }
   }
