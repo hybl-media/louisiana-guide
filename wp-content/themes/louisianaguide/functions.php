@@ -110,3 +110,15 @@ function post_type_spots() {
 }
 add_action( 'init', 'post_type_guides', 0 );
 add_action( 'init', 'post_type_spots', 0 );
+
+function wpse_287931_register_categories_names_field() {
+
+    register_rest_field( 'project',
+        'categories_names',
+        array(
+            'get_callback'    => 'wpse_287931_get_categories_names',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
