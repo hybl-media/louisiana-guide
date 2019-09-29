@@ -36,13 +36,15 @@ class Guide extends Component {
 
     render() {
         return(
-          <div>
-            {this.state.guide.map(spot => (
-                <div key={spot.id}>
-                    <h3>{spot.title.rendered}</h3>
-                </div>
-            ))}
-          </div>
+            <div>
+                <ul>
+                    {this.state.guide.map(spot => (
+                    <li key={spot.id}>
+                        <Link to={"/spot/" + spot.slug}>{spot.title.rendered}</Link> 
+                    </li>
+                    ))}
+                </ul>
+            </div>
         )
     }
 }
